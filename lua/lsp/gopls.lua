@@ -12,7 +12,7 @@ return {
 			},
 			staticcheck = true,
 			gofumpt = true,
-			inlayHints = {
+			hints = {
 				assignVariableTypes = true,
 				compositeLiterals = true,
 				constantValues = true,
