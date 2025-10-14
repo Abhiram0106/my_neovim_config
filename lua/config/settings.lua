@@ -1,12 +1,12 @@
-vim.g.have_nerd_font = true
+vim.g.have_nerd_font = false
 
 vim.o.number = true
 vim.o.relativenumber = true
 
 vim.o.mouse = 'a'
 
--- hide insert/visual etc mode indicator coz using status line
-vim.o.showmode = false
+-- hide/show insert/visual etc mode indicator (alternative = status line plugin)
+vim.o.showmode = true
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -61,13 +61,12 @@ vim.o.scrolloff = 10
 
 -- Show diagnostics on virtual lines
 vim.diagnostic.config({
-  -- Use the default configuration
-  virtual_lines = true
+	-- Use the default configuration
+	virtual_lines = true
 
-  -- Alternatively, customize specific options
-  -- virtual_lines = {
-  --  -- Only show virtual line diagnostics for the current cursor line
-  --  current_line = true,
-  -- },
+	-- Alternatively, customize specific options
+	-- virtual_lines = {
+	--  -- Only show virtual line diagnostics for the current cursor line
+	--  current_line = true,
+	-- },
 })
-
