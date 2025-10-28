@@ -6,7 +6,7 @@ vim.o.relativenumber = true
 vim.o.mouse = 'a'
 
 -- hide/show insert/visual etc mode indicator (alternative = status line plugin)
-vim.o.showmode = true
+vim.o.showmode = false
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
