@@ -60,15 +60,33 @@ vim.o.cursorline = true
 vim.o.scrolloff = 10
 
 -- Show diagnostics on virtual lines
+-- See :help vim.diagnostic.Opts
 vim.diagnostic.config({
 	-- Use the default configuration
-	virtual_lines = true,
+	-- virtual_lines = true,
 
 	-- Alternatively, customize specific options
 	-- virtual_lines = {
 	--  -- Only show virtual line diagnostics for the current cursor line
 	--  current_line = true,
 	-- },
+
+	virtual_lines = {
+		current_line = true
+	},
+	virtual_text = {
+		source = 'if_many',
+		spacing = 2,
+		format = function(diagnostic)
+			local diagnostic_message = {
+				[vim.diagnostic.severity.ERROR] = diagnostic.message,
+				[vim.diagnostic.severity.WARN] = diagnostic.message,
+				[vim.diagnostic.severity.INFO] = diagnostic.message,
+				[vim.diagnostic.severity.HINT] = diagnostic.message,
+			}
+			return diagnostic_message[diagnostic.severity]
+		end,
+	},
 	severity_sort = true,
 	float = { border = 'rounded', source = 'if_many' },
 	underline = { severity = vim.diagnostic.severity.ERROR },
