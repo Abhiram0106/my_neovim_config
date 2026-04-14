@@ -71,9 +71,6 @@ vim.diagnostic.config({
 	--  current_line = true,
 	-- },
 
-	virtual_lines = {
-		current_line = true
-	},
 	virtual_text = {
 		source = 'if_many',
 		spacing = 2,
@@ -85,6 +82,10 @@ vim.diagnostic.config({
 				[vim.diagnostic.severity.HINT] = diagnostic.message,
 			}
 			return diagnostic_message[diagnostic.severity]
+		end,
+		filter = function(diagnostic)
+			local cursor_line = vim.api.nvim_win_get_cursor(0)[1] - 1
+			return diagnostic.lnum ~= cursor_line
 		end,
 	},
 	severity_sort = true,
