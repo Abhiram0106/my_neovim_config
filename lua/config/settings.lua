@@ -5,6 +5,11 @@ vim.o.relativenumber = true
 
 vim.o.mouse = 'a'
 
+-- converts tabs to spaces
+vim.o.expandtab = true
+
+vim.o.tabstop = 4
+
 -- hide/show insert/visual etc mode indicator (alternative = status line plugin)
 vim.o.showmode = false
 
@@ -22,7 +27,7 @@ end)
 vim.o.breakindent = true
 
 -- save undo history
--- vim.o.undofile = true
+vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
